@@ -2,14 +2,14 @@ name: Auto-linter
 
 on: 
   push:
-    paths: "*.py"
+    paths: "**.py"
 
 jobs:
   code:
     runs-on: ubuntu-latest
     steps:
       - name: checkout /clone the code
-        uses: actions/checkout@v7
+        uses: actions/checkout@v4
         
         # this steps will be install linting tool
       - name:  install-linter
