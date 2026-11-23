@@ -1,16 +1,26 @@
+
 name: Auto-linter
 
-on: 
+on:
   push:
-    paths: "**.py"
+    paths:
+      - '**.py'
 
 jobs:
   code:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout/Clone the code
+      # Checkout / clone the repository
+      - name: Checkout Code
         uses: actions/checkout@v4
-        
-        # this steps will be install linting tool
-      - name:  Install-Linter
+
+      # Install Python
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      # Install Ruff
+      - name: Install Linter
         run: pip install ruff
